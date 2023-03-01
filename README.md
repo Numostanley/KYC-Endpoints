@@ -32,21 +32,21 @@ python manage.py runserver
 The endpoint to register a user is;
 
 ```
-# Request type: POST
+# Request method: POST
 127.0.0.1:8000/register
 ```
 
 After registering the user, you can log in by first getting an access token from the following url;
 
 ```
-# Request type: POST
+# Request method: POST
 127.0.0.1:8000/api/login/
 ```
 
 Next, you can access the user data through the following endpoint;
 
 ```
-# Request type: GET
+# Request method: GET
 127.0.0.1:8000/get-details
 ```
 
