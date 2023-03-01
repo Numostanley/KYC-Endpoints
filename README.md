@@ -53,5 +53,5 @@ Next, you can access the user data through the following endpoint;
 Note: you will need to add the access token gotten from the login endpoint to the request header in order to autenticate the user. You can use the following format in your request header;
 
 ```
-Authorization Bearer <access token>
+Authorization: Bearer <access token>
 ```
