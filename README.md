@@ -55,3 +55,34 @@ Note: you will need to add the access token gotten from the login endpoint to th
 ```
 Authorization: Bearer <access token>
 ```
+
+This is the JSON schema for the register endpoint.
+
+
+```
+{
+
+"username":"",
+
+"email":"",
+
+"first_name":"",
+
+"last_name",
+
+"password":"",
+
+"password2":""
+
+}
+```
+And this is for the login endpoint.
+```
+{
+
+"username":"",
+
+"password":"" 
+
+}
+```
