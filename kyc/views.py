@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import generics
+from rest_framework import generics, status
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
@@ -21,4 +21,17 @@ class UserDataAPI(APIView):
         user = User.objects.get(id=request.user.id)
         serializer =  UserSerializer(user)
         return Response(serializer.data)
+    
+class RegisterAPIView(generics.ListCreateAPIView):
+    permission_classes = (AllowAny,)
+    queryset = User.objects.all()
+    serializer_class = RegistrationSerializer
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data, many=isinstance(request.data, list))
+        serializer.is_valid(raise_exception=True)
+        
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
     
